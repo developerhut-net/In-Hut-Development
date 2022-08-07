@@ -16,43 +16,45 @@
 </head>
 <body>
 
-<br>
-<h2 class="text-center">Spring CRUD Application</h2>
-
-<div class="container">
-	
-	<br>
-	<h2>View Users</h2>
-	<br>
-	
-	<div class="row">
-		<table class="table table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Login ID</th>
-                    <th>Name</th>
-					<th>Status</th>
-					<th>Action</th>
-					<th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            	<c:forEach items="${users }" var="user">
-	                <tr>
-	                    <th scope="row">${user.id }</th>
-	                    <td>${user.loginId }</td>
-	                    <td>${user.name }</td>
-	                    <td>${user.status }</td>
-						<td><a class="btn btn-primary" href="editUser?id=${user.id}">Edit</a></td>
-						<td><a class="btn btn-danger" href="deleteUser?id=${user.id}">Delete</a></td>
-	                </tr>
-               	</c:forEach>
-            </tbody>
-        </table>
+	<div class="container">
+		<br><br>
+		<div class="card">
+			<h3 class="card-header text-center">Spring CRUD Application</h3>
+			<div class="card-body">
+				<h4 class="card-title">View Users</h4>
+				<div class="row">
+					<table class="table table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th>ID</th>
+								<th>Login ID</th>
+								<th>Name</th>
+								<th>Status</th>
+								<th>Action</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${users }" var="user">
+								<tr>
+									<th scope="row">${user.id }</th>
+									<td>${user.loginId }</td>
+									<td>${user.name }</td>
+									<td>${user.status }</td>
+									<td><a class="btn btn-primary"
+										href="editUser?id=${user.id}">Edit</a></td>
+									<td><a class="btn btn-danger"
+										href="deleteUser?id=${user.id}">Delete</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<a class="btn btn-success" href="createUser">Create User</a>
+			</div>
+		</div>
+		
 	</div>
-	<a class="btn btn-success" href="createUser">Create User</a>
-</div>
 
 </body>
 </html>

@@ -16,77 +16,80 @@
 </head>
 <body>
 
-<br>
-<h2 class="text-center">Spring CRUD Application</h2>
-
 <div class="container">
-
-	<div class="row">
-	
-		<div class="col-md-8 offset-md-2">
+	<br><br>
+	<div class="card">
+		<h3 class="card-header text-center">Spring CRUD Application</h3>
+		<div class="card-body">
 		
-			<br>
-			<h3 class="text-center">Update User</h3>
-			<br>
+			<h4 class="card-title">Update User</h4>
 			
-			<form action="updateUser" method="post">
-				<div class="form-group row">
-					<label class="col-sm-2 col-form-label">ID</label>
-				    <div class="col-sm-10">
-						<input type="text" name="id" value="${user.id }" readonly="readonly" class="form-control">
-					</div>
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+			
+					<form action="updateUser" method="post">
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">ID</label>
+							<div class="col-sm-10">
+								<input type="text" name="id" value="${user.id }" readonly="readonly" class="form-control">
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Login ID</label>
+							<div class="col-sm-10">
+								<input type="text" name="loginId" value="${user.loginId }" class="form-control">
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Name</label>
+							<div class="col-sm-10">
+								<input type="text" name="name" value="${user.name }" class="form-control">
+							</div>
+						</div>
+						
+						<fieldset class="form-group">
+							<div class="row">
+							  <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+							  <div class="col-sm-10">
+								<div class="form-check">
+								  <input type="radio" name="status" value="ACTIVE" ${user.status=='ACTIVE'?'checked':''} class="form-check-input"/>
+								  <label class="form-check-label">
+									ACTIVE
+								  </label>
+								</div>
+								<div class="form-check">
+								  <input type="radio" name="status" value="INACTIVE" ${user.status=='INACTIVE'?'checked':''} class="form-check-input"/>
+								  <label class="form-check-label">
+									INACTIVE
+								  </label>
+								</div>
+							  </div>
+							</div>
+						</fieldset>
+						
+						<c:if test="${msg != null }">
+							<div class="alert alert-success">
+								${msg }
+							</div>
+						</c:if>
+						
+						<div class="form-group row">
+							<div class="col-sm-10">
+							  <input type="submit" value="Update" class="btn btn-success">
+							  <a class="btn btn-primary" href="viewUsers">View All</a>
+							</div>
+						</div>		
+						
+					</form>
+			
 				</div>
-				
-				<div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Login ID</label>
-				    <div class="col-sm-10">
-						<input type="text" name="loginId" value="${user.loginId }" class="form-control">
-					</div>
-				</div>
-				
-				<div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Name</label>
-				    <div class="col-sm-10">
-						<input type="text" name="name" value="${user.name }" class="form-control">
-					</div>
-				</div>
-				
-				<fieldset class="form-group">
-				    <div class="row">
-				      <legend class="col-form-label col-sm-2 pt-0">Status</legend>
-				      <div class="col-sm-10">
-				        <div class="form-check">
-				          <input type="radio" name="status" value="ACTIVE" ${user.status=='ACTIVE'?'checked':''} class="form-check-input"/>
-				          <label class="form-check-label">
-				          	ACTIVE
-				          </label>
-				        </div>
-				        <div class="form-check">
-				          <input type="radio" name="status" value="INACTIVE" ${user.status=='INACTIVE'?'checked':''} class="form-check-input"/>
-				          <label class="form-check-label">
-				            INACTIVE
-				          </label>
-				        </div>
-				      </div>
-				    </div>
-				</fieldset>
-				
-				<c:if test="${msg != null }">
-					<div class="alert alert-success">
-				        ${msg }
-				    </div>
-				</c:if>
-				
-				<div class="form-group row">
-				    <div class="col-sm-10">
-				      <input type="submit" value="Update" class="btn btn-success">
-				      <a class="btn btn-primary" href="viewUsers">View All</a>
-				    </div>
-				</div>		
-				
-			</form>
-		</div>		
+			</div>			
+					
+		</div>
 	</div>
+	
 </div>
 
 </body>
