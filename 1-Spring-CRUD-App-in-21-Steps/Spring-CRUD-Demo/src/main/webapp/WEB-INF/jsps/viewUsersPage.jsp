@@ -33,8 +33,8 @@
                     <th>Login ID</th>
                     <th>Name</th>
 					<th>Status</th>
-					<th></th>
-					<th></th>
+					<th>Action</th>
+					<th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,14 +44,14 @@
 	                    <td>${user.loginId }</td>
 	                    <td>${user.name }</td>
 	                    <td>${user.status }</td>
-						<td><a href="editUser?id=${user.id}">Edit</a></td>
-						<td><a href="deleteUser?id=${user.id}">Delete</a></td>
+						<td><a class="btn btn-primary" href="editUser?id=${user.id}">Edit</a></td>
+						<td><a class="btn btn-danger" href="deleteUser?id=${user.id}">Delete</a></td>
 	                </tr>
                	</c:forEach>
             </tbody>
         </table>
 	</div>
-	<a class="btn btn-outline-primary" href="createUser">Create User</a>
+	<a class="btn btn-success" href="createUser">Create User</a>
 </div>
 
 </body>

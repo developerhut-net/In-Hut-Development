@@ -79,8 +79,8 @@
 				
 				<div class="form-group row">
 				    <div class="col-sm-10">
-				      <input type="submit" value="Update" class="btn btn-primary">
-				      <a class="btn btn-outline-primary" href="viewUsers">View All</a>
+				      <input type="submit" value="Update" class="btn btn-success">
+				      <a class="btn btn-primary" href="viewUsers">View All</a>
 				    </div>
 				</div>		
 				
