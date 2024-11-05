@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Post Page</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome <span th:text="${firstname}"></span> <span th:text=" ${lastname}"></span></h1>
+    	
+		<table border="1">
+			<thead>
+                 <tr>
+                 	 <th>ID</th>
+                     <th>Username</th>
+                     <th>Title</th>
+                     <th>Description</th>
+                 </tr>
+            </thead>
+			<tbody>
+				<tr th:each="post : ${postlist}">
+			        <td th:text="${post.id}"></td>
+			        <td th:text="${post.username}"></td>
+			        <td th:text="${post.title}"></td>
+			        <td th:text="${post.desc}"></td>
+     			</tr>
+			</tbody>
+		</table>
+    	<br>
+    	
+    	<form th:action="@{/logout}" id="logoutForm" method="post">
+			<button type="submit" class="login-btn">Logout</button>
+		</form>
+		
+		<ul>
+			<li><a th:href="@{/welcome}">Home</a></li>
+			<li sec:authorize="hasRole('USER')">
+				<a th:href="@{/user}">User</a>
+			</li>
+			<li sec:authorize="hasRole('POST')">
+				<a th:href="@{/post}">Post</a>
+			</li>
+		</ul>
+		
+    </div>
+				
+</body>
+</html>
